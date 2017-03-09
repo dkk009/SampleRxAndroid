@@ -4,11 +4,14 @@ import android.text.TextUtils;
 
 import com.dkk.rxjava.samplerxjava.models.User;
 import com.dkk.rxjava.samplerxjava.models.dbmodels.DBUser;
+import com.dkk.rxjava.samplerxjava.utils.StringUtils;
 
 import io.realm.Realm;
 
 /**
  * Created by deepak on 24/2/17.
+ *
+ * Login interactor implementation
  */
 
 public class LoginInteractorImpl implements LoginInteractor {
@@ -39,9 +42,9 @@ public class LoginInteractorImpl implements LoginInteractor {
         boolean status = false;
         if(null == user) {
             loginFinishedListener.error();
-        }else if(TextUtils.isEmpty(user.getUserName())) {
+        }else if(StringUtils.isEmpty(user.getUserName())) {
             loginFinishedListener.errorInUserName();
-        }else if(TextUtils.isEmpty(user.getPassword())) {
+        }else if(StringUtils.isEmpty(user.getPassword())) {
             loginFinishedListener.errorInPassword();
         }else if(user.getPassword().length()>1 && user.getUserName().length() >1) {
             status = true;

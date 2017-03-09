@@ -4,11 +4,9 @@ import com.dkk.rxjava.samplerxjava.models.dbmodels.DBUser;
 
 /**
  * Created by deepak on 27/2/17.
+ * Home view
  */
 
-public interface HomeView {
-
+public interface HomeView extends BaseView{
     void showUserDetails(DBUser dbUser);
-    void showProgress();
-    void hideProgress();
 }
